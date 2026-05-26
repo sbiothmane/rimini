@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import type { Locale } from '../config/site';
+import { isRtl, site } from '../config/site';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+	locale: Locale;
+	title?: string;
+	description?: string;
+	currentPath?: string;
+	showFloatingWhatsApp?: boolean;
+}
+
+const {
+	locale,
+	title,
+	description,
+	currentPath = Astro.url.pathname,
+	showFloatingWhatsApp = true,
+} = Astro.props;
+
+const t = useTranslations(locale);
+const pageTitle = title ? `${title} · ${site.name}` : site.name;
+const pageDescription = description ?? t.footer.tagline;
+const dir = isRtl(locale) ? 'rtl' : 'ltr';
+const lang = locale === 'ar' ? 'ar-MA' : 'fr-MA';
+---
+
+<!doctype html>
+<html lang={lang} dir={dir}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+		<meta name="description" content={pageDescription} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={new URL(Astro.url.pathname, site.url).href} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="min-h-screen flex flex-col">
+		<Header locale={locale} currentPath={currentPath} />
+		<main class="flex-1">
+			<slot />
+		</main>
+		<Footer locale={locale} />
+		{
+			showFloatingWhatsApp && (
+				<WhatsAppButton label={t.cta.whatsapp} variant="floating" />
+			)
+		}
+	</body>
+</html>

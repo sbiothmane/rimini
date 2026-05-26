@@ -1,0 +1,106 @@
+---
+import { render } from 'astro:content';
+import WhatsAppButton from '../../../components/WhatsAppButton.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, localePath, type Locale } from '../../../config/site';
+import { useTranslations } from '../../../i18n/ui';
+import { getProducts, productSlug } from '../../../utils/content';
+
+export async function getStaticPaths() {
+	const paths: { params: { locale: Locale; slug: string } }[] = [];
+	for (const locale of locales) {
+		const products = await getProducts(locale);
+		for (const product of products) {
+			paths.push({
+				params: { locale, slug: productSlug(product.id) },
+			});
+		}
+	}
+	return paths;
+}
+
+const { locale, slug } = Astro.params as { locale: Locale; slug: string };
+const t = useTranslations(locale);
+const products = await getProducts(locale);
+const product = products.find((p) => productSlug(p.id) === slug);
+
+if (!product) {
+	return Astro.redirect(localePath(locale, '/collection/'));
+}
+
+const { Content } = await render(product);
+const waMessage =
+	locale === 'ar'
+		? `مرحباً، أود طلب: ${product.data.title}`
+		: `Bonjour, je souhaite commander : ${product.data.title}`;
+---
+
+<BaseLayout locale={locale} title={product.data.title} description={product.data.description}>
+	<article class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+		<div class="grid gap-10 lg:grid-cols-2">
+			<div class="aspect-square rounded-3xl bg-gradient-to-br from-sand to-clay/20">
+				{
+					product.data.thumbnail ? (
+						<img
+							src={product.data.thumbnail}
+							alt={product.data.title}
+							class="h-full w-full rounded-3xl object-cover"
+							loading="eager"
+							fetchpriority="high"
+						/>
+					) : (
+						<div class="flex h-full items-center justify-center text-ink/40">Photo à venir</div>
+					)
+				}
+			</div>
+			<div class="flex flex-col gap-6">
+				<h1 class="text-3xl font-bold">{product.data.title}</h1>
+				<p class="text-lg text-ink/75">{product.data.description}</p>
+				{
+					product.data.priceFrom && (
+						<p class="text-xl font-semibold text-clay">
+							{locale === 'ar' ? 'ابتداءً من' : 'À partir de'}{' '}
+							{product.data.priceFrom} {product.data.currency}
+						</p>
+					)
+				}
+				<WhatsAppButton label={t.product.orderWhatsApp} message={waMessage} />
+				{
+					product.data.provenance && (
+						<section>
+							<h2 class="text-sm font-semibold uppercase tracking-wide text-clay">
+								{t.product.provenance}
+							</h2>
+							<p class="mt-2 text-ink/75">{product.data.provenance}</p>
+						</section>
+					)
+				}
+				{
+					product.data.materials.length > 0 && (
+						<section>
+							<h2 class="text-sm font-semibold uppercase tracking-wide text-clay">
+								{t.product.materials}
+							</h2>
+							<ul class="mt-2 list-inside list-disc text-ink/75">
+								{product.data.materials.map((m) => (
+									<li>{m}</li>
+								))}
+							</ul>
+						</section>
+					)
+				}
+				{
+					product.data.care && (
+						<section>
+							<h2 class="text-sm font-semibold uppercase tracking-wide text-clay">{t.product.care}</h2>
+							<p class="mt-2 text-ink/75">{product.data.care}</p>
+						</section>
+					)
+				}
+				<div class="prose prose-sm max-w-none text-ink/80">
+					<Content />
+				</div>
+			</div>
+		</div>
+	</article>
+</BaseLayout>

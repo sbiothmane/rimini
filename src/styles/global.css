@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+	--font-sans: "Noto Sans", "Noto Sans Arabic", system-ui, sans-serif;
+	--color-ink: #1a1410;
+	--color-cream: #f7f3ed;
+	--color-sand: #e8dfd2;
+	--color-clay: #8b5e3c;
+	--color-rust: #a64b2a;
+}
+
+@layer base {
+	html {
+		@apply scroll-smooth antialiased;
+	}
+
+	body {
+		@apply bg-cream text-ink font-sans;
+	}
+
+	[dir="rtl"] body {
+		font-family: "Noto Sans Arabic", "Noto Sans", system-ui, sans-serif;
+	}
+}

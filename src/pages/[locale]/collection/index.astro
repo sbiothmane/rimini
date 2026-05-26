@@ -1,0 +1,35 @@
+---
+import ProductCard from '../../../components/ProductCard.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale } from '../../../config/site';
+import { useTranslations } from '../../../i18n/ui';
+import { getProducts } from '../../../utils/content';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params as { locale: Locale };
+const t = useTranslations(locale);
+const products = await getProducts(locale);
+---
+
+<BaseLayout locale={locale} title={t.collection.title} description={t.collection.subtitle}>
+	<div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+		<header class="mb-10 max-w-2xl">
+			<h1 class="text-3xl font-bold">{t.collection.title}</h1>
+			<p class="mt-3 text-ink/70">{t.collection.subtitle}</p>
+		</header>
+		{
+			products.length === 0 ? (
+				<p class="text-ink/60">Aucun produit pour le moment.</p>
+			) : (
+				<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					{products.map((product) => (
+						<ProductCard product={product} locale={locale} />
+					))}
+				</div>
+			)
+		}
+	</div>
+</BaseLayout>

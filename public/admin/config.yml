@@ -1,0 +1,75 @@
+# Decap CMS — enable after GitHub OAuth / Git Gateway is configured (see docs/DEPLOY.md)
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: src/assets/uploads
+public_folder: /src/assets/uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: products_fr
+    label: Produits (FR)
+    folder: src/content/products/fr
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Price from (MAD), name: priceFrom, widget: number, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Materials, name: materials, widget: list, field: { label: Material, name: material, widget: string } }
+      - { label: Care, name: care, widget: text, required: false }
+      - { label: Provenance, name: provenance, widget: text, required: false }
+      - { label: Thumbnail, name: thumbnail, widget: image, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: products_ar
+    label: المنتجات (AR)
+    folder: src/content/products/ar
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Price from (MAD), name: priceFrom, widget: number, required: false }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Materials, name: materials, widget: list, field: { label: Material, name: material, widget: string } }
+      - { label: Care, name: care, widget: text, required: false }
+      - { label: Provenance, name: provenance, widget: text, required: false }
+      - { label: Thumbnail, name: thumbnail, widget: image, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: craft_steps
+    label: Savoir-faire (steps)
+    folder: src/content/craft-steps
+    create: true
+    slug: '{{order}}-{{slug}}'
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Order, name: order, widget: number }
+      - { label: Image, name: image, widget: image, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: testimonials
+    label: Témoignages
+    folder: src/content/testimonials
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Author, name: author, widget: string }
+      - { label: Location, name: location, widget: string, required: false }
+      - { label: Quote, name: quote, widget: text }
+      - { label: Order, name: order, widget: number, default: 0 }

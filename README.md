@@ -1,43 +1,49 @@
-# Astro Starter Kit: Minimal
+# Rimini — artisan shoe workshop site
 
-```sh
-npm create astro@latest -- --template minimal
+Static marketing site for a Moroccan artisan shoe atelier. Built with **Astro 6**, **Tailwind CSS 4**, bilingual **French / Arabic (RTL)**, optimized for mobile and **WhatsApp** conversion.
+
+## Quick start
+
+```bash
+cp .env.example .env
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- French: [http://localhost:4321/fr/](http://localhost:4321/fr/)
+- Arabic: [http://localhost:4321/ar/](http://localhost:4321/ar/)
 
-## 🚀 Project Structure
+## Scripts
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Local dev server |
+| `npm run build` | Production build → `dist/` |
+| `npm run preview` | Preview production build |
+| `npm run deploy` | Build + deploy to Cloudflare Pages |
+
+## Project structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+  components/     UI (header, WhatsApp CTA, product cards)
+  config/         Site + env config
+  content/        Markdown collections (products, craft, testimonials)
+  i18n/           UI strings (fr / ar)
+  layouts/        Base layout
+  pages/          Routes (locale-prefixed)
+public/
+  admin/          Decap CMS (enable after auth setup)
+docs/
+  DEPLOY.md       Hosting + Cloudflare + GitHub setup
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Content
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Products:** `src/content/products/fr/` and `src/content/products/ar/` (one file per model per language).
+- **Craft steps:** `src/content/craft-steps/`
+- **Photos:** add to `src/assets/uploads/` and reference in frontmatter, or use Decap CMS later.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deployment
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See [docs/DEPLOY.md](docs/DEPLOY.md) for Cloudflare Pages, GitHub Actions secrets, and `.ma` domain setup.

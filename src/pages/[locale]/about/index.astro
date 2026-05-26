@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, type Locale } from '../../../config/site';
+import { useTranslations } from '../../../i18n/ui';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params as { locale: Locale };
+const t = useTranslations(locale);
+---
+
+<BaseLayout locale={locale} title={t.about.title} description={t.about.body}>
+	<div class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+		<h1 class="text-3xl font-bold">{t.about.title}</h1>
+		<p class="mt-6 text-lg leading-relaxed text-ink/75">{t.about.body}</p>
+		<div
+			class="mt-10 aspect-video rounded-3xl bg-gradient-to-br from-sand to-clay/25"
+			role="img"
+			aria-label="Photo de l'atelier — à ajouter"
+		>
+		</div>
+	</div>
+</BaseLayout>

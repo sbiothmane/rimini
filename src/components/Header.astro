@@ -1,0 +1,74 @@
+---
+import type { Locale } from '../config/site';
+import { localePath, site } from '../config/site';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+	locale: Locale;
+	currentPath?: string;
+}
+
+const { locale, currentPath = '' } = Astro.props;
+const t = useTranslations(locale);
+const otherLocale = locale === 'fr' ? 'ar' : 'fr';
+const switchLabel = locale === 'fr' ? 'العربية' : 'Français';
+
+const links = [
+	{ href: localePath(locale, '/'), label: t.nav.home },
+	{ href: localePath(locale, '/collection/'), label: t.nav.collection },
+	{ href: localePath(locale, '/craft/'), label: t.nav.craft },
+	{ href: localePath(locale, '/about/'), label: t.nav.about },
+	{ href: localePath(locale, '/contact/'), label: t.nav.contact },
+];
+
+function isActive(href: string) {
+	return currentPath === href || (href !== localePath(locale, '/') && currentPath.startsWith(href));
+}
+---
+
+<header class="sticky top-0 z-40 border-b border-sand/80 bg-cream/95 backdrop-blur">
+	<div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+		<a href={localePath(locale, '/')} class="text-lg font-semibold tracking-tight text-ink">
+			{site.name}
+		</a>
+		<nav class="hidden items-center gap-6 md:flex" aria-label="Main">
+			{
+				links.map((link) => (
+					<a
+						href={link.href}
+						class:list={[
+							'text-sm transition hover:text-clay',
+							isActive(link.href) ? 'font-semibold text-clay' : 'text-ink/80',
+						]}
+					>
+						{link.label}
+					</a>
+				))
+			}
+		</nav>
+		<div class="flex items-center gap-3">
+			<a
+				href={localePath(otherLocale, currentPath.replace(`/${locale}`, '') || '/')}
+				class="rounded-full border border-sand px-3 py-1.5 text-xs font-medium text-ink/70 transition hover:border-clay hover:text-clay"
+				hreflang={otherLocale}
+			>
+				{switchLabel}
+			</a>
+		</div>
+	</div>
+	<nav class="flex gap-1 overflow-x-auto border-t border-sand/60 px-4 py-2 md:hidden" aria-label="Mobile">
+		{
+			links.map((link) => (
+				<a
+					href={link.href}
+					class:list={[
+						'whitespace-nowrap rounded-full px-3 py-1.5 text-xs',
+						isActive(link.href) ? 'bg-clay text-cream' : 'bg-sand/60 text-ink/80',
+					]}
+				>
+					{link.label}
+				</a>
+			))
+		}
+	</nav>
+</header>
