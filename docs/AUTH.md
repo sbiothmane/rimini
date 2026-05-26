@@ -16,16 +16,31 @@ npx wrangler pages project create rimini --production-branch=main
 npm run deploy
 ```
 
-Your preview URL will look like `https://rimini.pages.dev` (or similar).
+Production URL: **https://rimini-evz.pages.dev**
 
 ## 2. GitHub Actions secrets (auto-deploy on push)
 
-In the repo: **Settings → Secrets and variables → Actions → New repository secret**
+Already set via CLI:
 
-| Secret | Where to get it |
-|--------|-----------------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare dashboard → My Profile → API Tokens → Create → **Edit Cloudflare Workers** template |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard URL (`dash.cloudflare.com/<account_id>/...`) or Workers overview |
+| Name | Status |
+|------|--------|
+| `CLOUDFLARE_ACCOUNT_ID` | Set (`cd5e57832d2a71bf300422b390267506`) |
+| `PUBLIC_SITE_URL` | Variable → `https://rimini-evz.pages.dev` |
+| `PUBLIC_WHATSAPP_NUMBER` | Variable → placeholder `212600000000` (update when you have the real number) |
+| `PUBLIC_SHOP_NAME` | Variable → `Atelier Rimini` |
+
+**You still need** `CLOUDFLARE_API_TOKEN` (Wrangler login OAuth cannot be used in CI — it expires in ~1 hour).
+
+1. Open: [Create API token — Edit Cloudflare Workers template](https://dash.cloudflare.com/profile/api-tokens/create?template=workers)
+2. Continue → Create Token → copy the token (shown once).
+3. Run in terminal:
+
+```bash
+gh secret set CLOUDFLARE_API_TOKEN -R sbiothmane/rimini
+# paste token when prompted
+```
+
+Or: **Settings → Secrets and variables → Actions → New repository secret** → name `CLOUDFLARE_API_TOKEN`.
 
 Optional **Variables** (same settings page, Variables tab):
 

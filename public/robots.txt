@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rimini.pages.dev/sitemap-index.xml
+Sitemap: https://rimini-evz.pages.dev/sitemap-index.xml
