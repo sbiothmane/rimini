@@ -1,4 +1,5 @@
 ---
+import MediaImage from '../../../components/MediaImage.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { locales, type Locale } from '../../../config/site';
 import { useTranslations } from '../../../i18n/ui';
@@ -15,11 +16,10 @@ const t = useTranslations(locale);
 	<div class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
 		<h1 class="text-3xl font-bold">{t.about.title}</h1>
 		<p class="mt-6 text-lg leading-relaxed text-ink/75">{t.about.body}</p>
-		<div
-			class="mt-10 aspect-video rounded-3xl bg-gradient-to-br from-sand to-clay/25"
-			role="img"
-			aria-label="Photo de l'atelier — à ajouter"
-		>
-		</div>
+		<MediaImage
+			src="media/workshop/workshop-1241.webp"
+			alt={t.about.title}
+			class="mt-10 aspect-video w-full rounded-3xl object-cover"
+		/>
 	</div>
 </BaseLayout>

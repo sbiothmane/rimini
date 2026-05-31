@@ -1,6 +1,7 @@
 ---
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import ProductCard from '../../components/ProductCard.astro';
+import MediaImage from '../../components/MediaImage.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { locales, localePath, type Locale } from '../../config/site';
 import { useTranslations } from '../../i18n/ui';
@@ -39,12 +40,12 @@ const display = featured.length > 0 ? featured : products.slice(0, 3);
 					</a>
 				</div>
 			</div>
-			<div
-				class="aspect-[4/5] rounded-3xl bg-gradient-to-br from-sand via-cream to-clay/30 shadow-inner"
-				role="img"
-				aria-label="Hero — ajoutez une photo d'atelier ou de chaussure"
-			>
-			</div>
+			<MediaImage
+				src="media/hero/babouche-rimini-tan-blue.webp"
+				alt={t.home.title}
+				class="aspect-[4/5] w-full rounded-3xl object-cover shadow-lg"
+				priority
+			/>
 		</div>
 	</section>
 

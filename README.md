@@ -21,6 +21,10 @@ npm run dev
 | `npm run build` | Production build → `dist/` |
 | `npm run preview` | Preview production build |
 | `npm run deploy` | Build + deploy to Cloudflare Pages |
+| `npm run cf:login` | Log in to Cloudflare (Wrangler) |
+| `npm run cf:whoami` | Check Cloudflare account |
+
+Wrangler is installed **locally** in this repo — there is no global `wrangler` command unless you install it yourself. Use `npm run cf:login` or `npx wrangler login` from the project folder.
 
 ## Project structure
 
@@ -42,7 +46,8 @@ docs/
 
 - **Products:** `src/content/products/fr/` and `src/content/products/ar/` (one file per model per language).
 - **Craft steps:** `src/content/craft-steps/`
-- **Photos:** add to `src/assets/uploads/` and reference in frontmatter, or use Decap CMS later.
+- **Media library:** `src/assets/media/` — see [docs/MEDIA.md](docs/MEDIA.md)
+- **Import new AirDrop files:** `npm run media:import`
 
 ## Deployment
 

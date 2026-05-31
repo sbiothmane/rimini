@@ -1,6 +1,7 @@
 ---
 import { render } from 'astro:content';
 import WhatsAppButton from '../../../components/WhatsAppButton.astro';
+import MediaImage from '../../../components/MediaImage.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { locales, localePath, type Locale } from '../../../config/site';
 import { useTranslations } from '../../../i18n/ui';
@@ -38,18 +39,20 @@ const waMessage =
 <BaseLayout locale={locale} title={product.data.title} description={product.data.description}>
 	<article class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
 		<div class="grid gap-10 lg:grid-cols-2">
-			<div class="aspect-square rounded-3xl bg-gradient-to-br from-sand to-clay/20">
+			<div class="space-y-3">
+				<MediaImage
+					src={product.data.thumbnail}
+					alt={product.data.title}
+					class="aspect-square w-full rounded-3xl object-cover"
+					priority
+				/>
 				{
-					product.data.thumbnail ? (
-						<img
-							src={product.data.thumbnail}
-							alt={product.data.title}
-							class="h-full w-full rounded-3xl object-cover"
-							loading="eager"
-							fetchpriority="high"
-						/>
-					) : (
-						<div class="flex h-full items-center justify-center text-ink/40">Photo à venir</div>
+					product.data.gallery.length > 1 && (
+						<div class="grid grid-cols-3 gap-2">
+							{product.data.gallery.slice(0, 6).map((src) => (
+								<MediaImage src={src} alt="" class="aspect-square rounded-xl object-cover" />
+							))}
+						</div>
 					)
 				}
 			</div>

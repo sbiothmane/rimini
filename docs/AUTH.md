@@ -5,7 +5,9 @@ GitHub is already set up: **https://github.com/sbiothmane/rimini**
 ## 1. Cloudflare (hosting)
 
 ```bash
-npx wrangler login
+# From the project root (wrangler is a local devDependency, not global):
+npm run cf:login
+# or: npx wrangler login
 ```
 
 Then create the Pages project and first deploy:
@@ -29,18 +31,16 @@ Already set via CLI:
 | `PUBLIC_WHATSAPP_NUMBER` | Variable → placeholder `212600000000` (update when you have the real number) |
 | `PUBLIC_SHOP_NAME` | Variable → `Atelier Rimini` |
 
-**You still need** `CLOUDFLARE_API_TOKEN` (Wrangler login OAuth cannot be used in CI — it expires in ~1 hour).
+**You still need** `CLOUDFLARE_API_TOKEN` — Wrangler login cannot be used in CI.
 
-1. Open: [Create API token — Edit Cloudflare Workers template](https://dash.cloudflare.com/profile/api-tokens/create?template=workers)
-2. Continue → Create Token → copy the token (shown once).
-3. Run in terminal:
+Full step-by-step (with screenshots descriptions and minimal-permission option): **[docs/CLOUDFLARE_API_TOKEN.md](./CLOUDFLARE_API_TOKEN.md)**
 
-```bash
-gh secret set CLOUDFLARE_API_TOKEN -R sbiothmane/rimini
-# paste token when prompted
-```
+Quick version:
 
-Or: **Settings → Secrets and variables → Actions → New repository secret** → name `CLOUDFLARE_API_TOKEN`.
+1. [Create token — Edit Cloudflare Workers template](https://dash.cloudflare.com/profile/api-tokens/create?template=workers)
+2. Create Token → copy value (shown once)
+3. `gh secret set CLOUDFLARE_API_TOKEN -R sbiothmane/rimini`
+4. Re-run the GitHub Actions workflow
 
 Optional **Variables** (same settings page, Variables tab):
 

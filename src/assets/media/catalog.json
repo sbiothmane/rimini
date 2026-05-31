@@ -1,0 +1,269 @@
+{
+  "images": [
+    {
+      "slug": "sandal-h-strap-pink-orange",
+      "category": "products",
+      "width": 2000,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-pink-orange.webp",
+      "thumb": "media/products/sandal-h-strap-pink-orange-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-variant-01",
+      "category": "products",
+      "width": 2000,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-variant-01.webp",
+      "thumb": "media/products/sandal-h-strap-variant-01-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-red-blue",
+      "category": "products",
+      "width": 2000,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-red-blue.webp",
+      "thumb": "media/products/sandal-h-strap-red-blue-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-variant-02",
+      "category": "products",
+      "width": 2000,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-variant-02.webp",
+      "thumb": "media/products/sandal-h-strap-variant-02-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-variant-03",
+      "category": "products",
+      "width": 2000,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-variant-03.webp",
+      "thumb": "media/products/sandal-h-strap-variant-03-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-variant-04",
+      "category": "products",
+      "width": 2000,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-variant-04.webp",
+      "thumb": "media/products/sandal-h-strap-variant-04-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-orange-turquoise",
+      "category": "products",
+      "width": 2000,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-orange-turquoise.webp",
+      "thumb": "media/products/sandal-h-strap-orange-turquoise-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-variant-05",
+      "category": "products",
+      "width": 2000,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-variant-05.webp",
+      "thumb": "media/products/sandal-h-strap-variant-05-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-variant-06",
+      "category": "products",
+      "width": 1309,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-variant-06.webp",
+      "thumb": "media/products/sandal-h-strap-variant-06-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-variant-07",
+      "category": "products",
+      "width": 1617,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-variant-07.webp",
+      "thumb": "media/products/sandal-h-strap-variant-07-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-variant-08",
+      "category": "products",
+      "width": 1658,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-variant-08.webp",
+      "thumb": "media/products/sandal-h-strap-variant-08-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-variant-09",
+      "category": "products",
+      "width": 2000,
+      "height": 1997,
+      "src": "media/products/sandal-h-strap-variant-09.webp",
+      "thumb": "media/products/sandal-h-strap-variant-09-thumb.webp"
+    },
+    {
+      "slug": "sandal-h-strap-orange-dark-sole",
+      "category": "products",
+      "width": 1237,
+      "height": 2000,
+      "src": "media/products/sandal-h-strap-orange-dark-sole.webp",
+      "thumb": "media/products/sandal-h-strap-orange-dark-sole-thumb.webp"
+    },
+    {
+      "slug": "clog-zebra-blue-fur",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/clog-zebra-blue-fur.webp",
+      "thumb": "media/products/clog-zebra-blue-fur-thumb.webp"
+    },
+    {
+      "slug": "mule-brown-leather",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/mule-brown-leather.webp",
+      "thumb": "media/products/mule-brown-leather-thumb.webp"
+    },
+    {
+      "slug": "product-variant-0928",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/product-variant-0928.webp",
+      "thumb": "media/products/product-variant-0928-thumb.webp"
+    },
+    {
+      "slug": "babouche-tan-classic",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/babouche-tan-classic.webp",
+      "thumb": "media/products/babouche-tan-classic-thumb.webp"
+    },
+    {
+      "slug": "babouche-rimini-tan-blue",
+      "category": "hero",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/hero/babouche-rimini-tan-blue.webp",
+      "thumb": "media/hero/babouche-rimini-tan-blue-thumb.webp"
+    },
+    {
+      "slug": "mule-black-green-lining",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/mule-black-green-lining.webp",
+      "thumb": "media/products/mule-black-green-lining-thumb.webp"
+    },
+    {
+      "slug": "product-variant-1004",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/product-variant-1004.webp",
+      "thumb": "media/products/product-variant-1004-thumb.webp"
+    },
+    {
+      "slug": "product-variant-1005",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/product-variant-1005.webp",
+      "thumb": "media/products/product-variant-1005-thumb.webp"
+    },
+    {
+      "slug": "product-variant-1051",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/product-variant-1051.webp",
+      "thumb": "media/products/product-variant-1051-thumb.webp"
+    },
+    {
+      "slug": "loafer-black-penny-contrast",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/loafer-black-penny-contrast.webp",
+      "thumb": "media/products/loafer-black-penny-contrast-thumb.webp"
+    },
+    {
+      "slug": "loafer-black-penny-side",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/loafer-black-penny-side.webp",
+      "thumb": "media/products/loafer-black-penny-side-thumb.webp"
+    },
+    {
+      "slug": "workshop-1241",
+      "category": "workshop",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/workshop/workshop-1241.webp",
+      "thumb": "media/workshop/workshop-1241-thumb.webp"
+    },
+    {
+      "slug": "workshop-1271",
+      "category": "workshop",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/workshop/workshop-1271.webp",
+      "thumb": "media/workshop/workshop-1271-thumb.webp"
+    },
+    {
+      "slug": "loafer-suede-tricolor-lifestyle",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/loafer-suede-tricolor-lifestyle.webp",
+      "thumb": "media/products/loafer-suede-tricolor-lifestyle-thumb.webp"
+    },
+    {
+      "slug": "loafer-black-suede-driver",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/loafer-black-suede-driver.webp",
+      "thumb": "media/products/loafer-black-suede-driver-thumb.webp"
+    },
+    {
+      "slug": "craft-lasting-leather",
+      "category": "craft",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/craft/craft-lasting-leather.webp",
+      "thumb": "media/craft/craft-lasting-leather-thumb.webp"
+    },
+    {
+      "slug": "craft-process-0134",
+      "category": "craft",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/craft/craft-process-0134.webp",
+      "thumb": "media/craft/craft-process-0134-thumb.webp"
+    },
+    {
+      "slug": "loafer-rust-suede-moc",
+      "category": "products",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/products/loafer-rust-suede-moc.webp",
+      "thumb": "media/products/loafer-rust-suede-moc-thumb.webp"
+    },
+    {
+      "slug": "craft-process-0141",
+      "category": "craft",
+      "width": 1500,
+      "height": 2000,
+      "src": "media/craft/craft-process-0141.webp",
+      "thumb": "media/craft/craft-process-0141-thumb.webp"
+    }
+  ],
+  "videos": [
+    {
+      "slug": "atelier-process-0252",
+      "category": "videos/craft",
+      "src": "media/videos/craft/atelier-process-0252.mp4",
+      "poster": "media/videos/craft/atelier-process-0252-poster.webp"
+    }
+  ],
+  "skipped": []
+}

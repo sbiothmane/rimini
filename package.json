@@ -12,17 +12,22 @@
     "preview": "astro preview",
     "preview:cloudflare": "npm run build && wrangler pages dev dist",
     "deploy": "npm run build && wrangler pages deploy dist --project-name=rimini",
+    "cf:login": "wrangler login",
+    "cf:whoami": "wrangler whoami",
+    "cf:deploy": "npm run deploy",
+    "media:import": "node scripts/process-media.mjs",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.7",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
     "typescript": "^5.9.3",
-    "wrangler": "^4.19.0"
+    "wrangler": "^4.94.0"
   }
 }

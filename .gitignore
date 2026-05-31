@@ -22,6 +22,9 @@ pnpm-debug.log*
 .wrangler/
 .dev.vars
 
+# original camera files (archived locally after import)
+src/assets/_ingest/
+
 # macOS-specific files
 .DS_Store
 
